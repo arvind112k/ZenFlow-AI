@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "category": "Breathing",
+    "content": "Box Breathing (4-4-4-4): Inhale for 4 seconds, hold for 4, exhale for 4, and hold for 4. This technique is used by Navy SEALs to stay calm and focused under pressure."
+  },
+  {
+    "id": "2",
+    "category": "Breathing",
+    "content": "4-7-8 Technique: Inhale for 4 seconds, hold for 7, and exhale forcefully for 8. This is highly effective for falling asleep and reducing acute anxiety."
+  },
+  {
+    "id": "3",
+    "category": "Yoga",
+    "content": "Child's Pose (Balasana): A resting pose that gently stretches the hips, thighs, and ankles. It helps calm the mind and relieves stress and fatigue."
+  },
+  {
+    "id": "4",
+    "category": "Yoga",
+    "content": "Cobra Pose (Bhujangasana): Strengthens the spine, stretches the chest and lungs, shoulders, and abdomen. It can help elevate mood and invigorate the heart."
+  },
+  {
+    "id": "5",
+    "category": "Meditation",
+    "content": "Mindfulness Meditation: Focus on your breath as it moves in and out of your body. When your mind wanders, gently bring your attention back to the breath without judgment."
+  },
+  {
+    "id": "6",
+    "category": "Meditation",
+    "content": "Loving-Kindness Meditation (Metta): Focus on developing feelings of goodwill, kindness, and warmth toward others and yourself. Repeat phrases like 'May I be happy, may I be healthy'."
+  },
+  {
+    "id": "7",
+    "category": "Wellness",
+    "content": "The Importance of Consistency: Even 5 minutes of daily practice is more effective than an hour once a week. Consistency builds the neural pathways for calm."
+  },
+  {
+    "id": "8",
+    "category": "Wellness",
+    "content": "Hydration and Mind: Dehydration can lead to increased cortisol levels (the stress hormone). Drinking water regularly helps maintain emotional balance."
+  },
+  {
+    "id": "9",
+    "category": "Yoga",
+    "content": "Tree Pose (Vrksasana): Improves balance and stability in the legs. On a mental level, it helps cultivate focus and concentration."
+  },
+  {
+    "id": "10",
+    "category": "Breathing",
+    "content": "Alternate Nostril Breathing (Nadi Shodhana): Helps balance the left and right hemispheres of the brain, calming the nervous system and preparing the mind for meditation."
+  }
+]

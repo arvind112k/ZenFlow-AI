@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import SessionFlow from './components/SessionFlow';
 import SessionPlayer from './components/SessionPlayer';
 import Auth from './components/Auth';
+import ChatWidget from './components/ChatWidget';
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/session/new" element={user ? <SessionFlow /> : <Navigate to="/auth" />} />
           <Route path="/session/play" element={user ? <SessionPlayer /> : <Navigate to="/auth" />} />
         </Routes>
+        <ChatWidget />
       </div>
     </Router>
   );
