@@ -1,0 +1,5 @@
+{
+  "name": "ZenFlow AI",
+  "description": "Personalized AI-powered meditation and yoga guidance for a calmer mind and body.",
+  "requestFramePermissions": ["microphone"]
+}

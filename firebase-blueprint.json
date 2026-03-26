@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user preferences and progress.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "goal": { "type": "string", "enum": ["stress", "focus", "sleep", "anxiety"] },
+            "duration": { "type": "number", "enum": [5, 10, 15, 30] },
+            "level": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+            "voice": { "type": "string" },
+            "background": { "type": "string" }
+          }
+        },
+        "streak": { "type": "number" },
+        "lastSessionAt": { "type": "string", "format": "date-time" },
+        "totalMinutes": { "type": "number" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Session": {
+      "title": "Meditation Session",
+      "description": "Stores details of a completed session.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "userId": { "type": "string" },
+        "goal": { "type": "string" },
+        "duration": { "type": "number" },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "script": { "type": "string" },
+        "yogaSequence": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["userId", "goal", "duration", "completedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile documents."
+    },
+    "/sessions/{sessionId}": {
+      "schema": "Session",
+      "description": "Session history documents."
+    }
+  }
+}

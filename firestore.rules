@@ -1,0 +1,70 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: userId (UID)
+    // Fields:
+    //   - uid: string (required)
+    //   - email: string (required)
+    //   - preferences: map (optional)
+    //   - streak: number (optional)
+    //   - lastSessionAt: timestamp (optional)
+    //   - totalMinutes: number (optional)
+    //
+    // Collection: sessions
+    // Document ID: sessionId
+    // Fields:
+    //   - userId: string (required)
+    //   - goal: string (required)
+    //   - duration: number (required)
+    //   - completedAt: timestamp (required)
+    //   - script: string (optional)
+    //   - yogaSequence: list (optional)
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.userId;
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['uid', 'email']) &&
+             data.uid is string &&
+             data.email is string;
+    }
+
+    function isValidSession(data) {
+      return data.keys().hasAll(['userId', 'goal', 'duration', 'completedAt']) &&
+             data.userId == request.auth.uid &&
+             data.goal is string &&
+             data.duration is number &&
+             data.completedAt is timestamp;
+    }
+
+    // Rules
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+      allow update: if isOwner(userId) && isValidUser(request.resource.data);
+    }
+
+    match /sessions/{sessionId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid);
+      allow create: if isAuthenticated() && isValidSession(request.resource.data);
+      allow delete: if isAuthenticated() && (resource.data.userId == request.auth.uid);
+    }
+  }
+}
